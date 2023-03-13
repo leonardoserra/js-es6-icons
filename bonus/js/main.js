@@ -113,6 +113,14 @@ const cardArray = [
 	}
 ];
 
+/*
+	BONUS 2
+	-creo un riferimento alla select #filter con getElementById()
+	-genero un elemento dom <option>
+	-con append lo metto sul riferimento e coi template literals  
+		ci aggiungo la value che potrei prendere da cardArray.type forse
+*/
+
 const colorArray = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'];
 const cardContainerDom = document.querySelector('.card-container');
 const selectDom = document.getElementById('filter');
@@ -164,6 +172,7 @@ function randomNumber(max){
 		che vado a sommare ad una stringa assegnata ad una variabile
 	-assegno quel valore a cardArray.color nel ciclo forEach cosi da generare sempre
 		un colore random.
-	-oppure al posto di assegnarlo all object semplicemente lo uso su style.color
+	-oppure al posto di assegnarlo all object semplicemente lo uso su style
 		della <i>
 */
+
