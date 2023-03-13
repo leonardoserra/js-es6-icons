@@ -116,4 +116,9 @@ const cardArray = [
 const cardDom = document.querySelector('.card');
 const nameDom = document.getElementById('card-name');
 
-// cardDom.innerHTML = `<i class="fa-solid ${cardArray.prefix}${cardArray.name}"></i>`
+
+cardArray.forEach((element)=>{
+
+    cardDom.innerHTML += ` <i class="fa-solid ${element.prefix}${element.name}"></i> `;
+    nameDom.innerHTML += `ciao`;
+});
