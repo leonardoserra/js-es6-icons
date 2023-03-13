@@ -115,18 +115,19 @@ const cardArray = [
 
 const cardDom = document.querySelector('.card');
 const selectDom = document.getElementById('filter');
+// const containerDom = document.getElementById('container');
 
 selectDom.addEventListener('change', function(){
-    selectedArray = [];
+    // selectedArray = [];
+    cardDom.innerHTML='';
     
-    selectedArray = cardArray.filter(element=>element.type == selectDom.value);
-    
-    selectedArray.forEach((element)=>{
-    
-        cardDom.innerHTML+=`<i style="color:${element.color}" class="fa-solid ${element.prefix}${element.name}"></i>
-                            <div>${element.name}</div>`;
-        
-    });
+    if(selectDom.value != ''){
+        const selectedArray = genFilteredArray();
+        domFiller(selectedArray);   
+    }else {
+        domFiller(cardArray);
+    }
+
     // selectedArray = cardArray.forEach((element)=>{
     
     //     cardDom.innerHTML+=`<i style="color:${element.color}" class="fa-solid ${element.prefix}${element.name}"></i>
@@ -134,4 +135,22 @@ selectDom.addEventListener('change', function(){
         
     // });
 
-})
+});
+
+
+//functions
+
+function genFilteredArray(){
+    array = cardArray.filter(element=>element.type == selectDom.value);
+    return array;
+}
+function domFiller(array){
+    const newArray = array.forEach((element)=>{
+    
+        cardDom.innerHTML+=`<i style="color:${element.color}" class="fa-solid ${element.prefix}${element.name}"></i>
+                            <div>${element.name}</div>`;
+        
+    });
+    return newArray;
+}
+
