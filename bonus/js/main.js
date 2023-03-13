@@ -113,14 +113,13 @@ const cardArray = [
 	}
 ];
 
-colorArray = [0,1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f'];
-
-const cardDom = document.querySelector('.card');
+const colorArray = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'];
+const cardContainerDom = document.querySelector('.card-container');
 const selectDom = document.getElementById('filter');
-// const containerDom = document.getElementById('container');
+const containerDom = document.getElementById('container');
 
 selectDom.addEventListener('change', function(){
-    cardDom.innerHTML='';
+    cardContainerDom.innerHTML='';
     
     if(selectDom.value == 'all'){
         domFiller(cardArray);
@@ -140,11 +139,31 @@ function genFilteredArray(){
 }
 function domFiller(array){
     const newArray = array.forEach((element)=>{
-    
-        cardDom.innerHTML+=`<i style="color:${element.color}" class="fa-solid ${element.prefix}${element.name}"></i>
-                            <div>${element.name}</div>`;
-        
+		let randomColor = '';
+		for(i = 0; i < 6 ; i++){
+			randomColor += colorArray[randomNumber(colorArray.length - 1)];
+		}
+        cardContainerDom.innerHTML+=`
+							<div class="card">
+								<i style="color:#${randomColor}" class="fa-solid ${element.prefix}${element.name}"></i>
+								<div>${element.name}</div>
+							</div>`;
     });
     return newArray;
 }
 
+function randomNumber(max){
+	const randomNumber = Math.floor(Math.random() * max);
+	return randomNumber;
+}
+
+
+/*  BONUS 1
+	-creo arrai con tutti i valori possibili per l'esadecimale
+	-scorro array e prelevo 6 volte un valore casuale dell array
+		che vado a sommare ad una stringa assegnata ad una variabile
+	-assegno quel valore a cardArray.color nel ciclo forEach cosi da generare sempre
+		un colore random.
+	-oppure al posto di assegnarlo all object semplicemente lo uso su style.color
+		della <i>
+*/
