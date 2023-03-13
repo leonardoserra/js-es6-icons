@@ -1,4 +1,4 @@
-const card = [
+const cardArray = [
 	{
 		name: 'cat',
 		prefix: 'fa-',
@@ -112,3 +112,8 @@ const card = [
 		color: 'blue'
 	}
 ];
+
+const cardDom = document.querySelector('.card');
+const nameDom = document.getElementById('card-name');
+
+// cardDom.innerHTML = `<i class="fa-solid ${cardArray.prefix}${cardArray.name}"></i>`
