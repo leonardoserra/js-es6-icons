@@ -134,7 +134,7 @@ selectDom.addEventListener('change', function(){
 //functions
 
 function genFilteredArray(){
-    array = cardArray.filter(element=>element.type == selectDom.value);
+    const array = cardArray.filter(element=>element.type == selectDom.value);
     return array;
 }
 function domFiller(array){
