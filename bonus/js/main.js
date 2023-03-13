@@ -110,6 +110,20 @@ const cardArray = [
 		type: 'user',
 		family: 'fas',
 		color: 'blue'
+	},
+	{
+		name: 'otter',
+		prefix: 'fa-',
+		type: 'prova nuovo type',
+		family: 'fas',
+		color: 'blue'
+	},
+	{
+		name: 'baseball',
+		prefix: 'fa-',
+		type: 'sport',
+		family: 'fas',
+		color: 'blue'
 	}
 ];
 
