@@ -118,8 +118,7 @@ const cardDom = document.querySelector('.card');
 
 cardArray.forEach((element)=>{
 
-    cardDom.innerHTML += ` 
-        <i class="fa-solid ${element.prefix}${element.name}"></i> 
-        <div>${element.name}</div>`;
+    cardDom.innerHTML+=`<i style="color:${element.color}" class="fa-solid ${element.prefix}${element.name}"></i>
+                        <div>${element.name}</div>`;
     
 });
