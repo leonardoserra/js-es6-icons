@@ -12,7 +12,9 @@
     <body>
        
         <!------     HEADER     ------>
-       
+    <header>
+        <h1>FONT ICONS</h1>
+    </header>
         <!---------------------------->
 
     
@@ -21,14 +23,28 @@
 
 
         <!------     MAIN     ------>
-
+    <main>
+        <div>
+            <span>
+                <label for="filter">FILTRA PER TIPO:</label>
+                <select name="filter" id="filter">
+                    <option value="">- Scegli un opzione -</option>
+                    <option value="all">All</option>
+                    <option value="animal">Animal</option>
+                    <option value="vegetable">Vegetable</option>
+                    <option value="user">User</option>
+                </select>
+            </span>
+        </div>
         <div id="container">
+            
             <div class="card">
                 <!-- <i class="fa-solid fa-cat"></i> -->
                 <div id="card-name"></div>
             </div>
 
         </div>
+    </main>
            
         <!-------------------------->
 
