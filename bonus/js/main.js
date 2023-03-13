@@ -124,7 +124,6 @@ const colorArray = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e',
 const cardContainerDom = document.querySelector('.card-container');
 const containerDom = document.getElementById('container');
 const selectDom = document.getElementById('filter');
-const optionDom = document.createElement('option');
 
 // optionDom.setAttribute('value', 'ciaone');
 // optionDom.append("ciao");
@@ -146,19 +145,20 @@ selectDom.addEventListener('change', function(){
 
 //functions
 
-/* cicla tutti gli object e partendo dal primo type come riferimento 
-controlla quelli successivi, fa una verifica se il type è lo stesso 
-lo mette in un array quindi usi un filter, quando avrai l'array nuovo con
-tutti i type diversi e unici a disposizione fai un ciclo di lunghezza
-di quell array e per ogni ciclo fai l'append e come valore assegni
-il valore dell indice dell array[i] */
-
 console.log(cardArray[0]['type']);
 console.log(uniqueTypeFinder());
 
+
+
+/*
+scorre un array e crea un option con un value col valore degli indici
+di quell array e poi lo appende nella select, cosi se si aggiunge un oggetto
+con un nuovo type in automatico vera aggiunto al filtro.
+*/
 function selectDynamicCreator(array){
 
 	array.forEach((element)=>{
+		const optionDom = document.createElement('option');
 		optionDom.setAttribute('value', element);
 		optionDom.append(element);
 		selectDom.append(optionDom);
@@ -166,6 +166,7 @@ function selectDynamicCreator(array){
 
 }
 
+//filtra tutti i tipi di ogni oggetto e se sono nuovi li aggiunge a un array che poi ritorna
 function uniqueTypeFinder(){
 	// let newType = cardArray[0].type;
 	let newType = 'all';
@@ -213,5 +214,16 @@ function randomNumber(max){
 		un colore random.
 	-oppure al posto di assegnarlo all object semplicemente lo uso su style
 		della <i>
+*/
+
+/* BONUS 2 
+	cicla tutti gli object e partendo dal primo type come riferimento 
+		controlla quelli successivi
+	-fa una verifica se il type è lo stesso 
+		lo mette in un array quindi usi un filter
+	-quando avrai l'array nuovo con tutti i type diversi e unici 
+		a disposizione fai un ciclo di lunghezza
+		di quell array e per ogni ciclo fai l'append e come valore assegni
+		il valore dell indice dell array[i] 
 */
 
