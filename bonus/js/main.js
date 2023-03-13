@@ -113,13 +113,14 @@ const cardArray = [
 	}
 ];
 
+colorArray = [0,1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f'];
 
-const cardContainerDom = document.querySelector('.card-container');
+const cardDom = document.querySelector('.card');
 const selectDom = document.getElementById('filter');
-const containerDom = document.getElementById('container');
+// const containerDom = document.getElementById('container');
 
 selectDom.addEventListener('change', function(){
-    cardContainerDom.innerHTML='';
+    cardDom.innerHTML='';
     
     if(selectDom.value == 'all'){
         domFiller(cardArray);
@@ -140,11 +141,9 @@ function genFilteredArray(){
 function domFiller(array){
     const newArray = array.forEach((element)=>{
     
-        cardContainerDom.innerHTML+=`
-							<div class="card">
-								<i style="color:${element.color}" class="fa-solid ${element.prefix}${element.name}"></i>
-								<div>${element.name}</div>
-							</div>`;
+        cardDom.innerHTML+=`<i style="color:${element.color}" class="fa-solid ${element.prefix}${element.name}"></i>
+                            <div>${element.name}</div>`;
+        
     });
     return newArray;
 }
