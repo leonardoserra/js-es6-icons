@@ -118,22 +118,14 @@ const selectDom = document.getElementById('filter');
 // const containerDom = document.getElementById('container');
 
 selectDom.addEventListener('change', function(){
-    // selectedArray = [];
     cardDom.innerHTML='';
     
-    if(selectDom.value != ''){
+    if(selectDom.value == 'all'){
+        domFiller(cardArray);
+    }else if((selectDom.value != '')) {
         const selectedArray = genFilteredArray();
         domFiller(selectedArray);   
-    }else {
-        domFiller(cardArray);
     }
-
-    // selectedArray = cardArray.forEach((element)=>{
-    
-    //     cardDom.innerHTML+=`<i style="color:${element.color}" class="fa-solid ${element.prefix}${element.name}"></i>
-    //                         <div>${element.name}</div>`;
-        
-    // });
 
 });
 
