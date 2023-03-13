@@ -11,7 +11,8 @@
     
     Milestone 3
         Aggiungere alla pagina una select in cui le options corrispondono ai vari tipi di 
-            icone (animal, vegetable, user). Quando l’utente seleziona un tipo dalla select, visualizzare solamente le icone corrispondenti.
+            icone (animal, vegetable, user). Quando l’utente seleziona un tipo dalla select, 
+            visualizzare solamente le icone corrispondenti.
     
     BONUS
         1- modificare la struttura dati fornita e valorizzare la proprietà “color” in modo 

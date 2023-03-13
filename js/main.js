@@ -114,11 +114,23 @@ const cardArray = [
 ];
 
 const cardDom = document.querySelector('.card');
+const selectDom = document.getElementById('filter');
 
-
-cardArray.forEach((element)=>{
-
-    cardDom.innerHTML+=`<i style="color:${element.color}" class="fa-solid ${element.prefix}${element.name}"></i>
-                        <div>${element.name}</div>`;
+selectDom.addEventListener('change', function(){
+    selectedArray = [];
     
-});
+    selectedArray = cardArray.forEach((element)=>{
+    
+        cardDom.innerHTML+=`<i style="color:${element.color}" class="fa-solid ${element.prefix}${element.name}"></i>
+                            <div>${element.name}</div>`;
+        
+    });
+
+    // selectedArray = cardArray.forEach((element)=>{
+    
+    //     cardDom.innerHTML+=`<i style="color:${element.color}" class="fa-solid ${element.prefix}${element.name}"></i>
+    //                         <div>${element.name}</div>`;
+        
+    // });
+
+})
