@@ -125,9 +125,11 @@ const cardContainerDom = document.querySelector('.card-container');
 const containerDom = document.getElementById('container');
 const selectDom = document.getElementById('filter');
 const optionDom = document.createElement('option');
-optionDom.setAttribute('value', 'ciaone');
-optionDom.append("ciao");
-selectDom.append(optionDom);
+
+// optionDom.setAttribute('value', 'ciaone');
+// optionDom.append("ciao");
+// selectDom.append(optionDom);
+selectDynamicCreator(uniqueTypeFinder())
 
 selectDom.addEventListener('change', function(){
     cardContainerDom.innerHTML='';
@@ -144,16 +146,38 @@ selectDom.addEventListener('change', function(){
 
 //functions
 
-/* cicla tutti gli object e partendo dal primo type controlla
-quelli successivi, fa una verifica se il type è lo stesso lo mette
-in un array quindi usi un filter, quando avrai l'array nuovo con
+/* cicla tutti gli object e partendo dal primo type come riferimento 
+controlla quelli successivi, fa una verifica se il type è lo stesso 
+lo mette in un array quindi usi un filter, quando avrai l'array nuovo con
 tutti i type diversi e unici a disposizione fai un ciclo di lunghezza
 di quell array e per ogni ciclo fai l'append e come valore assegni
 il valore dell indice dell array[i] */
 
-function selectDinamicCreator(){
-	
+console.log(cardArray[0]['type']);
+console.log(uniqueTypeFinder());
 
+function selectDynamicCreator(array){
+
+	array.forEach((element)=>{
+		optionDom.setAttribute('value', element);
+		optionDom.append(element);
+		selectDom.append(optionDom);
+	});
+
+}
+
+function uniqueTypeFinder(){
+	// let newType = cardArray[0].type;
+	let newType = 'all';
+	const uniqueType = [newType];
+	cardArray.forEach((element,index)=>{
+		if(element.type != newType){
+			uniqueType.push(element.type)
+			newType = element.type;
+		}
+		
+	});
+	return uniqueType;
 }
 
 function genFilteredArray(){
