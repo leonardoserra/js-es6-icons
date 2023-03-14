@@ -201,15 +201,17 @@ function genFilteredArray(){
 }
 function domFiller(array){
     const newArray = array.forEach((element)=>{
-		let randomColor = '';
+		let randomColor = '#';
 		for(i = 0; i < 6 ; i++){
 			randomColor += colorArray[randomNumber(colorArray.length - 1)];
 		}
+		element.color = randomColor;
         cardContainerDom.innerHTML+=`
 							<div class="card">
-								<i style="color:#${randomColor}" class="fa-solid ${element.prefix}${element.name}"></i>
+								<i style="color:${randomColor}" class="fa-solid ${element.prefix}${element.name}"></i>
 								<div>${element.name}</div>
 							</div>`;
+							// style="color:#${randomColor}" 
     });
     return newArray;
 }
